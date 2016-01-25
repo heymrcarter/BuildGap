@@ -1,0 +1,19 @@
+{
+  "name": "build-gap",
+  "version": "0.1.0",
+  "description": "A UI library for displaying build information about web applications",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heymrcarter/BuildGap.git"
+  },
+  "author": "Tom Carter",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/heymrcarter/BuildGap/issues"
+  },
+  "homepage": "https://github.com/heymrcarter/BuildGap#readme"
+}
