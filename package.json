@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/heymrcarter/BuildGap/issues"
   },
-  "homepage": "https://github.com/heymrcarter/BuildGap#readme"
+  "homepage": "https://github.com/heymrcarter/BuildGap#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-open": "^1.0.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-sourcemaps": "^1.6.0"
+  }
 }

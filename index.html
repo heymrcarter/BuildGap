@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BuildGap demo</title>
+    
+    <link rel="stylesheet" href="css/buildgap.css"/>
+</head>
+    
+<body>
+    <div id="buildgap" class="buildgap">
+        <a href="#env-details" class="env-toggle">
+            <span>Environment</span><span class="close">&times;</span>
+        </a>
+        
+        <div id="env-details" class="details">           
+            <div class="detail" id="healthy">
+                <h3>Health</h3>
+                
+                <p><strong>Server:</strong> LOUWEBWDS24</p>
+                
+                <div class="health healthy">Healthy</div>
+                
+                <ul>
+                    <li>No issues found!</li>
+                </ul>
+            </div>
+            
+            <div class="detail" id="unhealthy">
+                <h3>Health</h3>
+                
+                <p><strong>Server:</strong> LOUWEBWDS24</p>
+                
+                <div class="health unhealthy">Unhealthy</div>
+                
+                <ul>
+                    <li>Low disk space on drive C!</li>
+                    <li>Low disk space on drive F!</li>
+                </ul>
+            </div>
+            
+            <div class="detail" id="warning">
+                <h3>Health</h3>
+                
+                <p><strong>Server:</strong> LOUWEBWDS24</p>
+                
+                <div class="health warning">Warning</div>
+                
+                <ul>
+                    <li>Drive C getting full!</li>
+                </ul>
+            </div>
+            
+            <div class="detail">
+                <h3>Applications</h3>
+                <ul>
+                    <li>CXM: 4.0.0</li>
+                    <li>Global: 3.4.0</li>
+                    <li>Humana.com: 3.0.0</li>
+                    <li>MyHumana: 3.2.0</li>
+                    <li>Tools: 3.0.0</li>
+                    <li>Q&E: 2.0.0</li> 
+                </ul>
+            </div>
+        </div>        
+    </div> 
+    
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script>
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        
+        function checkHealth () {
+            var health = getParameterByName('health');
+            
+            $('.detail').hide();
+            
+            if (health) {
+                $('#' + health).show();
+            } else {
+                $('#healthy').show();    
+            }
+            
+            $('.detail:last').show();
+        }
+        
+        $(function () {
+            var isOpen = false;
+            
+            checkHealth();
+            
+            $('.env-toggle').on('click', function (e) {
+                e.preventDefault();
+                
+                if (!isOpen) {
+                    $('#buildgap').addClass('open');
+                    isOpen = true;
+                } else {
+                    $('#buildgap').removeClass('open');
+                    isOpen = false;    
+                }
+            });  
+        });
+    </script>   
+</body>
+</html>
